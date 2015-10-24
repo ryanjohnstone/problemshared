@@ -1,0 +1,3 @@
+general:
+    artifacts:
+        - /home/ubuntu/problemshared/app/build/outputs/apk/
