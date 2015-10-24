@@ -1,4 +1,7 @@
-package com.codecomputerlove.problemshared.module.main.interactor;
+package com.codecomputerlove.problemshared.tests;
+
+import com.codecomputerlove.problemshared.module.main.interactor.MainInteractor;
+import com.codecomputerlove.problemshared.module.main.interactor.MainInteractorImpl;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +23,7 @@ public class MainTest {
     public void testSuccessfulLogin() {
 
         MainInteractor mainInteractor = new MainInteractorImpl();
-        Assert.assertEquals(true, true);
+        Assert.assertEquals(true, false);
     }
 
 }
