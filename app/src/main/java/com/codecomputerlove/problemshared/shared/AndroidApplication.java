@@ -1,6 +1,7 @@
 package com.codecomputerlove.problemshared.shared;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.codecomputerlove.problemshared.BuildConfig;
 import com.crashlytics.android.Crashlytics;
@@ -27,6 +28,10 @@ public class AndroidApplication extends Application {
     }
 
     public static AndroidApplication getInstance() {
+        return sInstance;
+    }
+
+    public static Context getContext() {
         return sInstance;
     }
 

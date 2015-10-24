@@ -6,6 +6,15 @@ import com.codecomputerlove.problemshared.module.main.interactor.MainInteractor;
 import com.codecomputerlove.problemshared.module.main.interactor.MainInteractorImpl;
 import com.codecomputerlove.problemshared.module.main.presenter.MainPresenter;
 import com.codecomputerlove.problemshared.module.main.presenter.MainPresenterImpl;
+import com.codecomputerlove.problemshared.module.pager.data.PagerData;
+import com.codecomputerlove.problemshared.module.pager.data.PagerDataImpl;
+import com.codecomputerlove.problemshared.module.pager.interactor.PagerInteractor;
+import com.codecomputerlove.problemshared.module.pager.interactor.PagerInteractorImpl;
+import com.codecomputerlove.problemshared.module.pager.presenter.PagerPresenter;
+import com.codecomputerlove.problemshared.module.pager.presenter.PagerPresenterImpl;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.squareup.okhttp.OkHttpClient;
 
 import org.mockito.Mockito;
 
@@ -24,6 +33,34 @@ public class DebugAppModule {
 
     public DebugAppModule(boolean provideMocks) {
         mockMode = provideMocks;
+    }
+
+    @Provides
+    @Singleton
+    OkHttpClient provideClient() {
+        return new OkHttpClient();
+    }
+
+    @Provides
+    @Singleton
+    Gson provideGson() {
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+        return gson;
+    }
+
+    @Provides
+    @Singleton
+    RestApi provideRestApi(OkHttpClient client) {
+        return new RestApiImpl(client);
+    }
+
+
+    @Provides
+    @Singleton
+    Api provideApi(RestApi restApi, Gson gson) {
+        //return new MockApiImpl(gson);
+
+        return new ApiImpl(restApi, gson);
     }
 
     @Provides
@@ -54,6 +91,35 @@ public class DebugAppModule {
         } else {
             return new MainDataImpl();
         }
+    }
+
+    @Provides
+    @Singleton
+    PagerPresenter providePagerPresenter(PagerInteractor pagerInteractor) {
+        if (mockMode) {
+            return Mockito.mock(PagerPresenter.class);
+        }
+        return new PagerPresenterImpl(pagerInteractor);
+    }
+
+    @Provides
+    @Singleton
+    PagerInteractor providePagerInteractor(PagerData pagerData)
+    {
+        if (mockMode) {
+            return Mockito.mock(PagerInteractor.class);
+        }
+        return new PagerInteractorImpl(pagerData);
+    }
+
+    @Provides
+    @Singleton
+    PagerData providePagerData(Api api)
+    {
+        if (mockMode) {
+            return Mockito.mock(PagerData.class);
+        }
+        return new PagerDataImpl(api);
     }
 
 

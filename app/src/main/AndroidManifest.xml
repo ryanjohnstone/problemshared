@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codecomputerlove.problemshared">
+    package="com.codecomputerlove.problemshared" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.codecomputerlove.problemshared.shared.AndroidApplication"
+        android:name=".shared.AndroidApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
-            android:name="com.codecomputerlove.problemshared.module.main.view.MainActivity"
-            android:label="@string/app_name">
+            android:name=".module.main.view.MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +24,8 @@
             android:name="io.fabric.ApiKey"
             android:value="0ae7c1dd2c77628cbc322a6aa34f35759ddffb50" />
 
+        <activity android:name=".module.pager.view.PagerActivity" >
+        </activity>
     </application>
 
 </manifest>

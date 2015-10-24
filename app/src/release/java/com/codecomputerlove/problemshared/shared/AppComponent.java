@@ -1,6 +1,7 @@
 package com.codecomputerlove.problemshared.shared;
 
 import com.codecomputerlove.problemshared.module.main.view.MainActivity;
+import com.codecomputerlove.problemshared.module.pager.view.PagerActivity;
 
 import javax.inject.Singleton;
 
@@ -15,6 +16,7 @@ public interface AppComponent {
 
     void inject(BaseActivity activity);
     void inject(MainActivity activity);
+    void inject (PagerActivity activity);
 
     public final static class Initializer {
         public static AppComponent init(boolean mockMode) {

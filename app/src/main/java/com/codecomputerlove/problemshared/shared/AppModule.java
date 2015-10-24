@@ -6,6 +6,17 @@ import com.codecomputerlove.problemshared.module.main.interactor.MainInteractor;
 import com.codecomputerlove.problemshared.module.main.interactor.MainInteractorImpl;
 import com.codecomputerlove.problemshared.module.main.presenter.MainPresenter;
 import com.codecomputerlove.problemshared.module.main.presenter.MainPresenterImpl;
+import com.codecomputerlove.problemshared.module.pager.data.PagerData;
+import com.codecomputerlove.problemshared.module.pager.data.PagerDataImpl;
+import com.codecomputerlove.problemshared.module.pager.interactor.PagerInteractor;
+import com.codecomputerlove.problemshared.module.pager.interactor.PagerInteractorImpl;
+import com.codecomputerlove.problemshared.module.pager.presenter.PagerPresenter;
+import com.codecomputerlove.problemshared.module.pager.presenter.PagerPresenterImpl;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.squareup.okhttp.OkHttpClient;
+
+import java.util.prefs.Preferences;
 
 import javax.inject.Singleton;
 
@@ -17,6 +28,30 @@ import dagger.Provides;
  */
 @Module
 public class AppModule {
+
+    @Provides
+    @Singleton
+    OkHttpClient provideClient() {
+        return new OkHttpClient();
+    }
+
+    @Singleton
+    @Provides
+    Gson provideGson() {
+
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+        return gson;
+    }
+
+    @Provides
+    @Singleton RestApi provideRestApi(OkHttpClient client) {
+        return new RestApiImpl(client);
+    }
+
+    @Provides
+    @Singleton Api provideApi(RestApi restApi, Gson gson) {
+        return new ApiImpl(restApi, gson);
+    }
 
     @Provides
     @Singleton
@@ -36,4 +71,23 @@ public class AppModule {
         return new MainDataImpl();
     }
 
+    @Provides
+    @Singleton
+    PagerPresenter providePagerPresenter(PagerInteractor pagerInteractor) {
+        return new PagerPresenterImpl(pagerInteractor);
+    }
+
+    @Provides
+    @Singleton
+    PagerInteractor providePagerInteractor(PagerData pagerData)
+    {
+        return new PagerInteractorImpl(pagerData);
+    }
+
+    @Provides
+    @Singleton
+    PagerData providePagerData(Api api)
+    {
+        return new PagerDataImpl(api);
+    }
 }
