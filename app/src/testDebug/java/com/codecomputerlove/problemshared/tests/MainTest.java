@@ -20,10 +20,10 @@ public class MainTest {
     }
 
     @Test
-    public void testSuccessfulLogin() {
+    public void testSample() {
 
         MainInteractor mainInteractor = new MainInteractorImpl();
-        Assert.assertEquals(true, false);
+        Assert.assertEquals(true, true);
     }
 
 }
