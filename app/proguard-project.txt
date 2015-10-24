@@ -15,3 +15,12 @@
 -keepattributes *Annotation*
 
 -dontwarn java.lang.invoke.*
+
+-dontwarn okio.**
+
+-dontwarn retrofit.**
+-dontwarn retrofit.appengine.UrlFetchClient
+-keep class retrofit.** { *; }
+-keepclasseswithmembers class * {
+    @retrofit.http.* <methods>;
+}
