@@ -43,6 +43,11 @@ public class MockApiImpl implements Api {
     }
 
     @Override
+    public void getOpportunitiesBySkillsAndCategories(String skills, String cats, OpportunityListCallback callback) {
+
+    }
+
+    @Override
     public void getDistance(double longitude, double latitude, String oppName, DistanceCallback distanceCallback) {
 
     }

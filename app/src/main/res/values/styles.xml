@@ -6,6 +6,7 @@
 
     <style name="Theme.MyApp.ActionBar" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="elevation">0dp</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">

@@ -18,4 +18,9 @@ public class PagerDataImpl implements PagerData {
     public void getOpportunities(OpportunityListCallback callback) {
         api.getAllOpportunities(callback);
     }
+
+    @Override
+    public void getOpportunitiesBySkillsAndCategories(String skills, String cats, OpportunityListCallback callback) {
+        api.getOpportunitiesBySkillsAndCategories(skills,cats,callback);
+    }
 }

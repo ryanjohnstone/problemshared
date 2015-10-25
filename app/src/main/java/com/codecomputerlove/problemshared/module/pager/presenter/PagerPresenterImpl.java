@@ -18,4 +18,9 @@ public class PagerPresenterImpl implements PagerPresenter{
     public void getOpportunities(OpportunityListCallback callback) {
         interactor.getOpportunities(callback);
     }
+
+    @Override
+    public void getOpportunitiesBySkillsAndCategories(String skills, String cats, OpportunityListCallback callback) {
+        interactor.getOpportunitiesBySkillsAndCategories(skills, cats, callback);
+    }
 }

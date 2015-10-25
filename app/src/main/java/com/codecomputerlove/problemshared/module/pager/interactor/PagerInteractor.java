@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PagerInteractor {
     void getOpportunities(OpportunityListCallback callback);
+    void getOpportunitiesBySkillsAndCategories(String skills, String cats, OpportunityListCallback callback);
 }

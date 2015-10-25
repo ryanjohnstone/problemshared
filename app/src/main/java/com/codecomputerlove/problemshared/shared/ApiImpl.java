@@ -25,6 +25,7 @@ public class ApiImpl implements Api {
     RestApi restApi;
     final Gson gson;
 
+    static final String OPPORTUNITIES = "http://aproblemsharedapi.apphb.com/opportunities/";
     static final String ALL_OPPORTUNITIES_URL = "http://aproblemsharedapi.apphb.com/opportunities/skills/all/categories/all";
     static final String DISTANCE_URL = "http://aproblemsharedapi.apphb.com/location/";
     static final String OPPORTUNITY = "http://aproblemsharedapi.apphb.com/opportunities/";
@@ -62,6 +63,34 @@ public class ApiImpl implements Api {
         });
 
 
+    }
+
+    @Override
+    public void getOpportunitiesBySkillsAndCategories(String skills, String cats, final OpportunityListCallback callback) {
+        String url = OPPORTUNITIES + "skills/"+skills+"/categories/"+cats;
+
+        restApi.get(url, new StringCallback() {
+            @Override
+            public void onCompleted(String response) {
+                Type listOfRoomEntityType = new TypeToken<List<Opportunity>>() {
+                }.getType();
+
+                List<Opportunity> opportunities;
+                try {
+                    opportunities = gson.fromJson(response, listOfRoomEntityType);
+                } catch (JsonSyntaxException e) {
+                    callback.onError(e);
+                    return;
+                }
+
+                callback.onCompleted(opportunities);
+            }
+
+            @Override
+            public void onError(Exception error) {
+                callback.onError(error);
+            }
+        });
     }
 
     @Override

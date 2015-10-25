@@ -64,6 +64,17 @@
         </activity>
         <activity android:name=".module.detail.view.ShareActivity" >
         </activity>
+        <activity
+            android:name=".module.StartActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".module.SkillsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity android:name=".module.CategoriesActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import com.codecomputerlove.problemshared.shared.callbacks.OpportunityListCallba
 public interface Api {
 
     void getAllOpportunities(OpportunityListCallback callback);
+    void getOpportunitiesBySkillsAndCategories(String skills, String cats, OpportunityListCallback callback);
 
     void getDistance(double longitude, double latitude, String oppName, DistanceCallback distanceCallback);
 

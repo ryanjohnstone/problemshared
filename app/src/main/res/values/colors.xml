@@ -3,4 +3,5 @@
     <color name="background">#FDFDF6</color>
     <color name="ps_blue">#0A7595</color>
     <color name="ps_pink">#F30036</color>
+    <color name="button_background">#26999999</color>
 </resources>

@@ -1,7 +1,10 @@
 package com.codecomputerlove.problemshared.module.pager.view.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,7 +44,11 @@ public class OpportunityListFragment extends Fragment {
 
         mHandler = new Handler();
 
-        ((PagerActivity) getActivity()).presenter.getOpportunities(new OpportunityListCallback() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String cats = sharedPref.getString("categories", "all");
+        String skills = sharedPref.getString("skills","all");
+
+        ((PagerActivity) getActivity()).presenter.getOpportunitiesBySkillsAndCategories(skills,cats,new OpportunityListCallback() {
             @Override
             public void onCompleted(final List<Opportunity> response) {
                 mHandler.post(new Runnable() {

@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="ToggleButton">
+        <attr name="colorOne" format="color" />
+        <attr name="colorTwo" format="color" />
+    </declare-styleable>
+</resources>
