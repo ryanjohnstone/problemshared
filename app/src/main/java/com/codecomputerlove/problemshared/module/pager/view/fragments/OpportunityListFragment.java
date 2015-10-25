@@ -26,6 +26,8 @@ public class OpportunityListFragment extends Fragment {
     List<Opportunity> mOpportunities = new ArrayList<>();
     Handler mHandler;
 
+    RecyclerView rv;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,18 +38,35 @@ public class OpportunityListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_opportunity_list, container, false);
 
-        RecyclerView rv = (RecyclerView)view.findViewById(R.id.recycler_view);
+        rv = (RecyclerView)view.findViewById(R.id.recycler_view);
+
+        loadOpportunities();
+
+        return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+           if (isResumed() && ((PagerActivity) getActivity()).refresh == true) {
+                loadOpportunities();
+               ((PagerActivity) getActivity()).refresh = false;
+            }
+        }
+    }
+
+    private void loadOpportunities() {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
         final OpportunityListAdapter adapter = new OpportunityListAdapter(mOpportunities);
         rv.setAdapter(adapter);
 
-        mHandler = new Handler();
-
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String cats = sharedPref.getString("categories", "all");
         String skills = sharedPref.getString("skills","all");
 
+        mHandler = new Handler();
         ((PagerActivity) getActivity()).presenter.getOpportunitiesBySkillsAndCategories(skills,cats,new OpportunityListCallback() {
             @Override
             public void onCompleted(final List<Opportunity> response) {
@@ -67,8 +86,5 @@ public class OpportunityListFragment extends Fragment {
 
             }
         });
-
-        return view;
     }
-
 }

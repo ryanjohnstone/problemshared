@@ -46,4 +46,16 @@ public class ToggleButtonPink extends Button {
     public boolean getIsToggled() {
         return toggledOn;
     }
+
+    public void toggleOn() {
+        this.setBackground(getResources().getDrawable(R.color.ps_pink));
+        this.setTextColor(getResources().getColor(R.color.background));
+        toggledOn = true;
+    }
+
+    public void toggleOff() {
+        this.setBackground(getResources().getDrawable(R.color.button_background));
+        this.setTextColor(getResources().getColor(R.color.ps_pink));
+        toggledOn = false;
+    }
 }

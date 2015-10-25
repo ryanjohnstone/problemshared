@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.codecomputerlove.problemshared.R;
 import com.codecomputerlove.problemshared.models.Opportunity;
@@ -36,6 +37,7 @@ public class ShareActivity extends BaseActivity {
                 .setContentUrl(Uri.parse("http://aproblemshared.com/opportunity/" + URLEncoder.encode(mOpportunity.getOpportunityName(), "utf-8").replace("+", "%20")))
                 .setContentTitle(mOpportunity.getOpportunityName())
                 .setContentDescription("I'm volunteering at " + mOpportunity.getOpportunityName() + ", why don't you join me? A problem shared is a problem halved.")
+                .setImageUrl(Uri.parse("http://i.imgur.com/DnvIUlc.jpg"))
                 .build();
 
         shareDialog.show(content);
@@ -46,5 +48,9 @@ public class ShareActivity extends BaseActivity {
         intent.putExtra("opportunity",mOpportunity);
         startActivity(intent);
 
+    }
+
+    public void twitterShare(View view) {
+        Toast.makeText(ShareActivity.this, "Twitter coming soon", Toast.LENGTH_SHORT).show();
     }
 }

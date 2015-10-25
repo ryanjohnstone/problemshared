@@ -28,6 +28,7 @@ public class PagerActivity extends BaseActivity {
     ViewPager mViewPager;
     @InjectView(R.id.sliding_tabs)
     TabLayout mTabLayout;
+    public boolean refresh = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -46,6 +46,11 @@
         android:textColor="@color/ps_blue"
         android:lineSpacingExtra="5dp"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
     <Button
         android:id="@+id/sharebutton"
         android:background="@drawable/btn_fb"
@@ -53,7 +58,18 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginRight="20dp"
+    />
+
+        <Button
+            android:id="@+id/twitterbutton"
+            android:background="@drawable/btn_twitter"
+            android:onClick="twitterShare"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
 
 
 

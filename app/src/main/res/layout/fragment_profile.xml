@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Skills"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/heavy_lifting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="heavy lifting"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/catering"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="catering"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/driving"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="Driving"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/diy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="diy"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/gardening"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="gardening"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/cleaning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="cleaning"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/teaching"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="teaching"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/fundraising"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="fundraising"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/care_work"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="care work"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButton
+            android:id="@+id/legal_work"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="legal work"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_blue"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+            <Button
+                android:id="@+id/saveSkills"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:background="@color/ps_blue"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/general_charity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="general charity"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/disabled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="disabled"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/elderly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="elderly"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/education"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="education"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/homeless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="homeless"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/religion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="religion"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/young_people"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="young people"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/animals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="animals"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/cubs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="cubs and scouts"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="10dp"/>
+
+        <com.codecomputerlove.problemshared.models.ToggleButtonPink
+            android:id="@+id/art"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="arts and music"
+            android:background="@color/button_background"
+            android:textColor="@color/ps_pink"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveCats"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:background="@color/ps_pink"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+       />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

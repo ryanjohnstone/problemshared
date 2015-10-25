@@ -39,7 +39,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return new OpportunityListFragment();
         } else if (position == 1) {
-            return new MapFragment();
+            return new ProfileFragment();
         }
 
         return new ProfileFragment();
