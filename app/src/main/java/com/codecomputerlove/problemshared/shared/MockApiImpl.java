@@ -1,6 +1,7 @@
 package com.codecomputerlove.problemshared.shared;
 
 import com.codecomputerlove.problemshared.models.Opportunity;
+import com.codecomputerlove.problemshared.shared.callbacks.DistanceCallback;
 import com.codecomputerlove.problemshared.shared.callbacks.OpportunityListCallback;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -38,6 +39,11 @@ public class MockApiImpl implements Api {
         }
 
         callback.onCompleted(opportunities);
+    }
+
+    @Override
+    public void getDistance(double longitude, double latitude, String oppName, DistanceCallback distanceCallback) {
+
     }
 
     private String getJsonStringFromFile(String fileName) {

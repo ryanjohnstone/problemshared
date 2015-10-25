@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codecomputerlove.problemshared" >
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -25,6 +27,8 @@
             android:value="0ae7c1dd2c77628cbc322a6aa34f35759ddffb50" />
 
         <activity android:name=".module.pager.view.PagerActivity" >
+        </activity>
+        <activity android:name=".module.detail.view.DetailActivity" >
         </activity>
     </application>
 

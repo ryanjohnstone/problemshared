@@ -1,5 +1,11 @@
 package com.codecomputerlove.problemshared.shared;
 
+import com.codecomputerlove.problemshared.module.detail.data.DetailData;
+import com.codecomputerlove.problemshared.module.detail.data.DetailDataImpl;
+import com.codecomputerlove.problemshared.module.detail.interactor.DetailInteractor;
+import com.codecomputerlove.problemshared.module.detail.interactor.DetailInteractorImpl;
+import com.codecomputerlove.problemshared.module.detail.presenter.DetailPresenter;
+import com.codecomputerlove.problemshared.module.detail.presenter.DetailPresenterImpl;
 import com.codecomputerlove.problemshared.module.main.data.MainData;
 import com.codecomputerlove.problemshared.module.main.data.MainDataImpl;
 import com.codecomputerlove.problemshared.module.main.interactor.MainInteractor;
@@ -15,8 +21,6 @@ import com.codecomputerlove.problemshared.module.pager.presenter.PagerPresenterI
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
-
-import java.util.prefs.Preferences;
 
 import javax.inject.Singleton;
 
@@ -89,5 +93,25 @@ public class AppModule {
     PagerData providePagerData(Api api)
     {
         return new PagerDataImpl(api);
+    }
+
+    @Provides
+    @Singleton
+    DetailPresenter provideDetailPresenter(DetailInteractor detailInteractor) {
+        return new DetailPresenterImpl(detailInteractor);
+    }
+
+    @Provides
+    @Singleton
+    DetailInteractor provideDetailInteractor(DetailData detailData)
+    {
+        return new DetailInteractorImpl(detailData);
+    }
+
+    @Provides
+    @Singleton
+    DetailData provideDetailData(Api api)
+    {
+        return new DetailDataImpl(api);
     }
 }

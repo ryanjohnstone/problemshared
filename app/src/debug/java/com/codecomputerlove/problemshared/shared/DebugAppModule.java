@@ -1,5 +1,11 @@
 package com.codecomputerlove.problemshared.shared;
 
+import com.codecomputerlove.problemshared.module.detail.data.DetailData;
+import com.codecomputerlove.problemshared.module.detail.data.DetailDataImpl;
+import com.codecomputerlove.problemshared.module.detail.interactor.DetailInteractor;
+import com.codecomputerlove.problemshared.module.detail.interactor.DetailInteractorImpl;
+import com.codecomputerlove.problemshared.module.detail.presenter.DetailPresenter;
+import com.codecomputerlove.problemshared.module.detail.presenter.DetailPresenterImpl;
 import com.codecomputerlove.problemshared.module.main.data.MainData;
 import com.codecomputerlove.problemshared.module.main.data.MainDataImpl;
 import com.codecomputerlove.problemshared.module.main.interactor.MainInteractor;
@@ -122,5 +128,33 @@ public class DebugAppModule {
         return new PagerDataImpl(api);
     }
 
+    @Provides
+    @Singleton
+    DetailPresenter provideDetailPresenter(DetailInteractor detailInteractor) {
+        if (mockMode) {
+            return Mockito.mock(DetailPresenter.class);
+        }
+        return new DetailPresenterImpl(detailInteractor);
+    }
+
+    @Provides
+    @Singleton
+    DetailInteractor provideDetailInteractor(DetailData detailData)
+    {
+        if (mockMode) {
+            return Mockito.mock(DetailInteractor.class);
+        }
+        return new DetailInteractorImpl(detailData);
+    }
+
+    @Provides
+    @Singleton
+    DetailData provideDetailData(Api api)
+    {
+        if (mockMode) {
+            return Mockito.mock(DetailData.class);
+        }
+        return new DetailDataImpl(api);
+    }
 
 }

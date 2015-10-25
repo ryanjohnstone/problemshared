@@ -1,7 +1,8 @@
-package com.codecomputerlove.problemshared.module.detail.data;
+package com.codecomputerlove.problemshared.module.detail.presenter;
 
 import com.codecomputerlove.problemshared.shared.callbacks.DistanceCallback;
 
-public interface DetailData {
+public interface DetailPresenter {
     void getDistance(double longitude, double latitude, String oppName, DistanceCallback distanceCallback);
+
 }

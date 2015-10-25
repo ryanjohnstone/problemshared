@@ -2,4 +2,7 @@
 <resources>
   <string name="app_name">problemshared</string>
 
+  <string name="contact_message">Let %1$s know you are getting involved by sending them a quick text.</string>
+  <string name="contact_button_message">Text %1$s</string>
+
 </resources>

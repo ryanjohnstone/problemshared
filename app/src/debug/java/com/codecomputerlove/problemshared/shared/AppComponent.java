@@ -1,5 +1,6 @@
 package com.codecomputerlove.problemshared.shared;
 
+import com.codecomputerlove.problemshared.module.detail.view.DetailActivity;
 import com.codecomputerlove.problemshared.module.main.view.MainActivity;
 import com.codecomputerlove.problemshared.module.pager.view.PagerActivity;
 
@@ -16,6 +17,7 @@ public interface AppComponent {
     void inject(BaseActivity activity);
     void inject(MainActivity activity);
     void inject (PagerActivity activity);
+    void inject (DetailActivity activity);
     void inject(InjectedBaseActivityTest test);
 
     public final static class Initializer {
