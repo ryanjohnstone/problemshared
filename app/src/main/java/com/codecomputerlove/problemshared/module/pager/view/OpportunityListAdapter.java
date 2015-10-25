@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.codecomputerlove.problemshared.R;
 import com.codecomputerlove.problemshared.models.Opportunity;
+import com.codecomputerlove.problemshared.module.detail.view.BriefActivity;
 import com.codecomputerlove.problemshared.module.detail.view.DetailActivity;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class OpportunityListAdapter extends RecyclerView.Adapter<OpportunityList
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, DetailActivity.class);
+                Intent intent = new Intent(mContext, BriefActivity.class);
                 intent.putExtra("opportunity",mOpportunities.get(position));
                 mContext.startActivity(intent);
             }

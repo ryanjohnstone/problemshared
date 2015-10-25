@@ -18,6 +18,14 @@ import com.codecomputerlove.problemshared.module.detail.presenter.DetailPresente
 import com.codecomputerlove.problemshared.shared.AndroidApplication;
 import com.codecomputerlove.problemshared.shared.BaseActivity;
 import com.codecomputerlove.problemshared.shared.callbacks.DistanceCallback;
+import com.codecomputerlove.problemshared.shared.callbacks.OpportunityCallback;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -78,6 +86,9 @@ public class DetailActivity extends BaseActivity {
     @InjectView(R.id.youtube_url)
     TextView mYoutubeTextView;
 
+    Context mContext;
+    Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +99,44 @@ public class DetailActivity extends BaseActivity {
 
         getSupportActionBar().setTitle("Detail");
 
-        mOpportunity = (Opportunity)getIntent().getSerializableExtra("opportunity");
+        final Intent intent = getIntent();
+        final String action = intent.getAction();
+        mHandler = new Handler();
 
+        if (Intent.ACTION_VIEW.equals(action)) {
+            final List<String> segments = intent.getData().getPathSegments();
+            if (segments.size() > 1) {
+                String oppName = segments.get(1);
+                presenter.getOpportunity(oppName, new OpportunityCallback(){
+
+                    @Override
+                    public void onCompleted(final Opportunity response) {
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                mOpportunity = response;
+                                setupView();
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onError(Exception error) {
+
+                    }
+                });
+            }
+
+            return;
+        }
+
+        mOpportunity = (Opportunity)getIntent().getSerializableExtra("opportunity");
+        setupView();
+    }
+
+    private void setupView() {
         mOpportunityNameTextView.setText(mOpportunity.getOpportunityName());
         mOpportunityDescriptionTextView.setText(mOpportunity.getActivities());
         mCharityNameTextView.setText(mOpportunity.getCharity());
@@ -101,7 +148,7 @@ public class DetailActivity extends BaseActivity {
         double longitude = location.getLongitude();
         double latitude = location.getLatitude();
 
-        final Handler mHandler = new Handler();
+
 
         presenter.getDistance(longitude,latitude, mOpportunity.getOpportunityName(), new DistanceCallback(){
 
@@ -124,6 +171,7 @@ public class DetailActivity extends BaseActivity {
             }
         });
 
+        mContext = this;
         final Context context = this;
 
         if (mOpportunity.getTelephone().equals("0")) {
@@ -167,7 +215,7 @@ public class DetailActivity extends BaseActivity {
             });
         }
 
-        if (mOpportunity.getWebsite() != "0") {
+        if (!mOpportunity.getWebsite().equals("0")) {
             mWebsiteTextView.setText(mOpportunity.getWebsite());
             mWebsiteTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -183,7 +231,7 @@ public class DetailActivity extends BaseActivity {
             mWebsiteLayout.setVisibility(View.GONE);
         }
 
-        if (mOpportunity.getFacebookAccountName() != "0") {
+        if (!mOpportunity.getFacebookAccountName().equals("0")) {
             mFacebookTextView.setText(mOpportunity.getFacebookAccountName());
             mFacebookTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -198,7 +246,7 @@ public class DetailActivity extends BaseActivity {
             mFacebookLayout.setVisibility(View.GONE);
         }
 
-        if (mOpportunity.getTwitterAccountName() != "0") {
+        if (!mOpportunity.getTwitterAccountName().equals("0")) {
             mTwitterTextView.setText("@"+mOpportunity.getTwitterAccountName());
             mTwitterTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -213,7 +261,7 @@ public class DetailActivity extends BaseActivity {
             mTwitterLayout.setVisibility(View.GONE);
         }
 
-        if (mOpportunity.getYoutubeAccountName() != "0") {
+        if (!mOpportunity.getYoutubeAccountName().equals("0")) {
             mYoutubeTextView.setText(mOpportunity.getYoutubeAccountName());
             mYoutubeTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -227,6 +275,5 @@ public class DetailActivity extends BaseActivity {
         } else {
             mYoutubeLayout.setVisibility(View.GONE);
         }
-
     }
 }

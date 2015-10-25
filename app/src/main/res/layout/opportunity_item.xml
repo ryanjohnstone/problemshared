@@ -30,7 +30,7 @@
                 android:layout_alignParentTop="true"
                 android:textSize="20sp"
                 tools:text="Homeless Food Run"
-                android:textColor="@color/material_green"
+                android:textColor="@color/ps_blue"
                 android:fontFamily="sans-serif-medium"
                 android:ellipsize="end"
                 android:lines="1"

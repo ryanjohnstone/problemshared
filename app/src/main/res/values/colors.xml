@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background">#E2E2E2</color>
-    <color name="material_green">#009688</color>
+    <color name="background">#FDFDF6</color>
+    <color name="ps_blue">#0A7595</color>
+    <color name="ps_pink">#F30036</color>
 </resources>
